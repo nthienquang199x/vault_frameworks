@@ -325,10 +325,22 @@
         <li>Crash reports and anonymous error logs (no vault content is ever included)</li>
       </ul>
 
-      <h3>1.4 Biometric Data</h3>
-      <p>BioVault supports biometric authentication (fingerprint, Face ID, or front-camera face recognition). Biometric
-        data is processed <strong>entirely on your device</strong> using the platform's secure enclave or on-device ML
-        models. Raw biometric data is never uploaded, stored on our servers, or shared with third parties.</p>
+      <h3>1.4 Biometric Data (Including Face and Palm Data)</h3>
+      <p>BioVault supports biometric authentication (including fingerprint, Face ID / Face Data, and Palm Data). To
+        explicitly address the handling of this sensitive information:</p>
+      <ul>
+        <li><strong>What data is collected:</strong> Biometric templates or features derived from your face or palm.
+        </li>
+        <li><strong>How it is used:</strong> This data is used <strong>solely for local identification</strong> to
+          authenticate you and securely unlock the app.</li>
+        <li><strong>Data Sharing &amp; Storage:</strong> Face and palm data are processed and stored <strong>entirely
+            and exclusively on your local device</strong> using the platform's secure enclave or local ML models.
+          <strong>This data never leaves your device, is never uploaded to our servers, and is never shared with any
+            third parties.</strong></li>
+        <li><strong>Data Retention:</strong> Biometric data is retained only locally on your device for as long as the
+          app is installed. It is removed if you uninstall the app or delete your biometric profile from your device's
+          system settings.</li>
+      </ul>
     </section>
 
     <!-- 2 · How We Use Data -->
@@ -355,8 +367,8 @@
             <td>Debug crashes; ensure compatibility with new OS versions</td>
           </tr>
           <tr>
-            <td>Biometric templates</td>
-            <td>Unlock the app locally; never leaves the device</td>
+            <td>Biometric templates (Face, Palm, Fingerprint)</td>
+            <td>Unlock the app locally for authentication; never leaves the device</td>
           </tr>
         </tbody>
       </table>
@@ -421,7 +433,8 @@
         account at any time from within the app's Settings screen. Upon deletion:</p>
       <ul>
         <li>Your Firestore data is permanently erased within 30 days.</li>
-        <li>Local app data is removed when you uninstall the app.</li>
+        <li>Local app data (including any locally processed Face/Palm biometric templates) is removed when you uninstall
+          the app.</li>
         <li>Firebase Auth records are deleted immediately upon account deletion request.</li>
       </ul>
     </section>
